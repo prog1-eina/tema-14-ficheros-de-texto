@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="tema-14-ficheros-de-texto" Database="" Version="10.0.0">
   <Project Name="01-contar" Path="contar/contar.project" Active="No"/>
-  <Project Name="02-ficheros-nif" Path="ficheros-nif/ficheros-nif.project" Active="Yes"/>
+  <Project Name="02-ficheros-nif" Path="ficheros-nif/ficheros-nif.project" Active="No"/>
+  <Project Name="03-ficheros-nif-sintaxis-alternativa" Path="ficheros-nif-sintaxis-alternativa/ficheros-nif-sintaxis-alternativa.project" Active="Yes"/>
+  <Project Name="03-ficheros-nif-sintaxis-alternativa" Path="ficheros-nif-sintaxis-alternativa/ficheros-nif-sintaxis-alternativa.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Environment/>
       <Project Name="01-contar" ConfigName="Debug"/>
       <Project Name="02-ficheros-nif" ConfigName="Debug"/>
+      <Project Name="03-ficheros-nif-sintaxis-alternativa" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Environment/>
       <Project Name="01-contar" ConfigName="Release"/>
       <Project Name="02-ficheros-nif" ConfigName="Release"/>
+      <Project Name="03-ficheros-nif-sintaxis-alternativa" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>
