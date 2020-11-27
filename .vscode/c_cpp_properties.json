@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "name": "Programación 1",
+            "includePath": [
+                "${workspaceFolder}/../tema-11-registros/**"
+            ]
+        }
+    ],
+    "version": 4
+}

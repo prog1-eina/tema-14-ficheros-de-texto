@@ -8,7 +8,7 @@
 
 #include <iostream>
 #include <fstream>
-#include "nif.h"
+#include "nif.hpp"
 using namespace std;
 
 /*
@@ -83,8 +83,8 @@ void escribirFicheroNif(const char nombreFichero[], const Nif T[],
  * Programa de ejemplo de uso de las funciones anteriores.
  */ 
 int main() {
-    const char NOMBRE_FICHERO_ORIGEN[] = "../nifs-ejemplo.txt";
-    const char NOMBRE_FICHERO_DESTINO[] = "../nifs-ejemplo-corregido.txt";
+    const char NOMBRE_FICHERO_ORIGEN[] = "datos/nifs-ejemplo.txt";
+    const char NOMBRE_FICHERO_DESTINO[] = "datos/nifs-ejemplo-corregido.txt";
     const int MAX_NIFS = 1000;
     Nif vectorNifs[MAX_NIFS];
     int nDatos, nErroneos;
