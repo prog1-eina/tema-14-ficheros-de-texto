@@ -33,10 +33,6 @@
 
 # CodeLite
 .codelite/
-Makefile
-*.mk
-*/*.txt
-!ficheros-nif/nifs-ejemplo.txt
 compile_commands.json
 */Debug/
 */Release/
