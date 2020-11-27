@@ -1,13 +1,13 @@
-﻿/********************************************************************************\
+﻿/******************************************************************************\
  * Curso de Programación 1. Tema 14 (Ficheros de texto)
  * Autores: Javier Martínez y Miguel Ángel Latre
- * Última revisión: 2 de diciembre de 2019
+ * Última revisión: 27 de noviembre de 2019
  * Resumen: Funciones que trabajan con ficheros de NIF.
- * Codificación de caracteres original de este fichero: UTF-8 con BOM
-\********************************************************************************/
+\******************************************************************************/
 
 #include <iostream>
 #include <fstream>
+#include <string>
 #include "nif.hpp"
 using namespace std;
 
@@ -22,7 +22,7 @@ using namespace std;
  *       fichero no se ha podido abrir, ha asignado -1 tanto a «nDatos» como
  *       «nErroneos» y ha escrito un mensaje de error.
  */
-void leerFicheroNif(const char nombreFichero[], Nif T[],
+void leerFicheroNif(const string nombreFichero, Nif T[],
                    int& nDatos, int& nErroneos) {
     ifstream f;
     f.open(nombreFichero);
@@ -55,19 +55,19 @@ void leerFicheroNif(const char nombreFichero[], Nif T[],
 
 
 /*
- * Pre:  n>=0
- * Post: Crea un fichero de texto de nombre «nombreFichero» en el que almacena los
- *       NIF de las primeras «n» componentes de «T», a razón de un NIF por línea,
- *       separando el número de DNI de la letra mediante un espacio en blanco. Si
- *       el fichero no se ha podido escribir, ha escrito un mensaje de error en
- *       «cerr».
+ * Pre:  ---
+ * Post: Crea un fichero de texto de nombre «nombreFichero» en el que almacena
+ *       los NIF de las primeras «n» componentes de «T», a razón de un NIF por
+ *       línea, separando el número de DNI de la letra mediante un espacio en
+ *       blanco. Si el fichero no se ha podido escribir, ha escrito un mensaje
+ *       de error en «cerr».
  */
-void escribirFicheroNif(const char nombreFichero[], const Nif T[],
-                const int n) {
+void escribirFicheroNif(const string nombreFichero, const Nif T[],
+                        const unsigned int n) {
     ofstream f;
     f.open(nombreFichero);
     if (f.is_open()) {
-        for (int i = 0; i < n; i++) {
+        for (unsigned int i = 0; i < n; i++) {
             f << T[i].dni << " " << T[i].letra << endl;
         }
         f.close();
@@ -83,8 +83,8 @@ void escribirFicheroNif(const char nombreFichero[], const Nif T[],
  * Programa de ejemplo de uso de las funciones anteriores.
  */ 
 int main() {
-    const char NOMBRE_FICHERO_ORIGEN[] = "datos/nifs-ejemplo.txt";
-    const char NOMBRE_FICHERO_DESTINO[] = "datos/nifs-ejemplo-corregido.txt";
+    const string NOMBRE_FICHERO_ORIGEN = "datos/nifs-ejemplo.txt";
+    const string NOMBRE_FICHERO_DESTINO = "datos/nifs-ejemplo-corregido.txt";
     const int MAX_NIFS = 1000;
     Nif vectorNifs[MAX_NIFS];
     int nDatos, nErroneos;
