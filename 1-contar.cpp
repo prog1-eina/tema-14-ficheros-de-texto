@@ -78,13 +78,13 @@ void contabilizar2(const string nombreFichero,
 
 
 /*
- * Pre:  En el directorio del proyecto, existe un fichero de texto denominado
- *       «lope-de-vega.txt».
+ * Pre:  En el directorio «datos» del proyecto, existe un fichero de texto 
+ *       denominado «lope-de-vega.txt».
  * Post: Ha realizado pruebas de las funciones anteriores, invocándolas con el
  *       fichero «lope-de-vega.txt» y mostrando los resultados obtenidos.
  */
 int main() {
-    const string NOMBRE_FICHERO = "lope-de-vega.txt";
+    const string NOMBRE_FICHERO = "datos/lope-de-vega.txt";
 
     int lineas, caracteres;
     contabilizar(NOMBRE_FICHERO, lineas, caracteres);
