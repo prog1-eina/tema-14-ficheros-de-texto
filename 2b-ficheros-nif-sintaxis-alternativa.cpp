@@ -6,6 +6,18 @@
  * Nota: Versión con la sintaxis alternativa según la regla 
  *       <fichero-nif-alternativo> presentada en los apuntes del profesor
  *       Javier Martínez.
+ * Nota: El código de este programa está repartido en varios módulos.
+ *       Para compilarlo, hay que ejecutar el comando
+ *           make fichero-nifs-alt
+ *       o, en Windows,
+ *           mingw32-make fichero-nifs-alt
+ *       o ejecutar la tarea "Compilar «fichero-nifs-alt»" de VSC.
+ * 
+ *       Para ejecutarlo, una vez compilado, hay que ejecutar el comando
+ *           bin/fichero-nifs-alt
+ *       o, en Windows,
+ *           bin\fichero-nifs-alt.exe
+ *       o ejecutar la tarea "Ejecutar «fichero-nifs-alt»" de VSC.
 \******************************************************************************/
 
 #include <iostream>

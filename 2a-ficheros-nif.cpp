@@ -2,7 +2,19 @@
  * Curso de Programación 1. Tema 14 (Ficheros de texto)
  * Autores: Javier Martínez y Miguel Ángel Latre
  * Última revisión: 27 de noviembre de 2019
- * Resumen: Funciones que trabajan con ficheros de NIF.
+ * Resumen: Funciones que trabajan con ficheros de NIF
+ * Nota: El código de este programa está repartido en varios módulos.
+ *       Para compilarlo, hay que ejecutar el comando
+ *           make fichero-nifs
+ *       o, en Windows,
+ *           mingw32-make fichero-nifs
+ *       o ejecutar la tarea "Compilar «fichero-nifs»" de VSC.
+ * 
+ *       Para ejecutarlo, una vez compilado, hay que ejecutar el comando
+ *           bin/fichero-nifs
+ *       o, en Windows,
+ *           bin\fichero-nifs.exe
+ *       o ejecutar la tarea "Ejecutar «fichero-nifs»" de VSC.
 \******************************************************************************/
 
 #include <iostream>

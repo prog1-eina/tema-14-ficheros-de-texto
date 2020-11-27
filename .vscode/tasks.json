@@ -1,0 +1,74 @@
+{
+    "tasks": [
+        {
+            "label": "Compilar «contar»",
+            "type": "shell",
+            "command": "make",
+            "windows": {
+                "command": "mingw32-make.exe",
+            },
+            "args": [
+                "contar"
+            ],
+            "problemMatcher": ["$gcc"],
+            "group": "build",
+        },
+        {
+            "label": "Ejecutar «contar»",
+            "type": "shell",
+            "command": "bin/contar",
+            "windows": {
+                "command": "chcp 65001 ; bin\\contar.exe",
+            },
+            "dependsOn": "Compilar «contar»",
+            "problemMatcher": ["$gcc"],
+        },
+        {
+            "label": "Compilar «fichero-nifs»",
+            "type": "shell",
+            "command": "make",
+            "windows": {
+                "command": "mingw32-make.exe",
+            },
+            "args": [
+                "fichero-nifs"
+            ],
+            "problemMatcher": ["$gcc"],
+            "group": "build",
+        },
+        {
+            "label": "Ejecutar «fichero-nifs»",
+            "type": "shell",
+            "command": "bin/fichero-nifs",
+            "windows": {
+                "command": "chcp 65001 ; bin\\fichero-nifs.exe",
+            },
+            "dependsOn": "Compilar «fichero-nifs»",
+            "problemMatcher": ["$gcc"],
+        },
+        {
+            "label": "Compilar «fichero-nifs-alt»",
+            "type": "shell",
+            "command": "make",
+            "windows": {
+                "command": "mingw32-make.exe",
+            },
+            "args": [
+                "fichero-nifs-alt"
+            ],
+            "problemMatcher": ["$gcc"],
+            "group": "build",
+        },
+        {
+            "label": "Ejecutar «fichero-nifs-alt»",
+            "type": "shell",
+            "command": "bin/fichero-nifs-alt",
+            "windows": {
+                "command": "chcp 65001 ; bin\\fichero-nifs-alt.exe",
+            },
+            "dependsOn": "Compilar «fichero-nifs-alt»",
+            "problemMatcher": ["$gcc"],
+        },
+    ],
+    "version": "2.0.0"
+}
