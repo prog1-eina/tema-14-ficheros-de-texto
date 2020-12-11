@@ -86,7 +86,7 @@ void contabilizar2(const string nombreFichero,
 int main() {
     const string NOMBRE_FICHERO = "datos/lope-de-vega.txt";
 
-    int lineas, caracteres;
+    unsigned int lineas, caracteres;
     contabilizar(NOMBRE_FICHERO, lineas, caracteres);
     cout << '\"' << NOMBRE_FICHERO << "\" tiene " << lineas << " líneas y " 
          << caracteres << " caracteres." << endl;
