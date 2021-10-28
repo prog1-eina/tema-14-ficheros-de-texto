@@ -70,5 +70,11 @@
             "problemMatcher": ["$gcc"],
         },
     ],
+    "presentation": {
+        "showReuseMessage": true,
+        "panel": "shared",
+        "reveal": "always",
+        "focus": true,
+    },
     "version": "2.0.0"
 }
