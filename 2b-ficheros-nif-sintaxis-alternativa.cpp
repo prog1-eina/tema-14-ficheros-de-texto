@@ -41,13 +41,13 @@ void leerFicheroNif(const string nombreFichero, Nif T[],
     ifstream f;
     f.open(nombreFichero);
     if (f.is_open()) {
-        unsigned int totalDatos;
+        unsigned totalDatos;
         f >> totalDatos;
 
         nDatos = 0;
         nErroneos = 0;
 
-        for (unsigned int i = 0; i < totalDatos; i++) {
+        for (unsigned i = 0; i < totalDatos; i++) {
             f >> T[nDatos].dni >> T[nDatos].letra;
             if (esValido(T[nDatos])) {
                 nDatos++;
@@ -75,12 +75,12 @@ void leerFicheroNif(const string nombreFichero, Nif T[],
  *       escribir, ha escrito un mensaje de error en «cerr».
  */
 void escribirFicheroNif(const string nombreFichero, const Nif T[],
-                        const unsigned int n) {
+                        const unsigned n) {
     ofstream f;
     f.open(nombreFichero);
     if (f.is_open()) {
         f << n << endl;
-        for (unsigned int i = 0; i < n; i++) {
+        for (unsigned i = 0; i < n; i++) {
             f << T[i].dni << " " << T[i].letra << endl;
         }
         f.close();
@@ -98,14 +98,18 @@ void escribirFicheroNif(const string nombreFichero, const Nif T[],
 int main() {
     const string NOMBRE_FICHERO_ORIGEN = "datos/nifs-ejemplo-alternativo.txt";
     const string NOMBRE_FICHERO_DESTINO = "datos/nifs-ejemplo-alternativo-corregido.txt";
-    const int MAX_NIFS = 1000;
+    const unsigned MAX_NIFS = 1000;
     Nif vectorNifs[MAX_NIFS];
     int nDatos, nErroneos;
     
     leerFicheroNif(NOMBRE_FICHERO_ORIGEN, vectorNifs, nDatos, nErroneos);
-    cout << "Leído el fichero. " << endl;
-    cout << nDatos << " NIF correctos y " << nErroneos << " incorrectos" << endl;
-         
-    escribirFicheroNif(NOMBRE_FICHERO_DESTINO, vectorNifs, nDatos);
-    return 0;
+    if (nDatos >= 0 && nErroneos >= 0) {
+        cout << "Leído el fichero. " << endl;
+        cout << nDatos << " NIF correctos y " << nErroneos << " incorrectos" << endl;
+        escribirFicheroNif(NOMBRE_FICHERO_DESTINO, vectorNifs, nDatos);
+        return 0;
+    }
+    else {
+        return 1;
+    }
 }

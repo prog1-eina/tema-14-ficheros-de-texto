@@ -13,12 +13,14 @@ using namespace std;
 /*
  * Pre:  «nombreFichero» es el nombre de un fichero de texto existente y
  *       accesible para su lectura.
- * Post: Ha asignado a «nLineas» el número de líneas del fichero y a
- *       «nCaracteres», el número de caracteres del mismo.
+ * Post: Si el fichero de nombre «nombreFichero» se ha podido leer, ha asignado
+ *       a «nLineas» el número de líneas del fichero y a «nCaracteres» el número
+ *       de caracteres del mismo y ha devuelto «true». En caso contrario, ha
+ *       devuelto «false».
  * Nota: Solución que lee línea a línea.
  */
-void contabilizar(const string nombreFichero, int& nLineas,
-                  int& nCaracteres) {
+bool contabilizar(const string nombreFichero, unsigned& nLineas,
+                  unsigned& nCaracteres) {
     ifstream f;                      // Declara un flujo de entrada.
     f.open (nombreFichero);          // Asocia a «f» el fichero «nombreFichero».
     if (f.is_open()) {
@@ -33,24 +35,26 @@ void contabilizar(const string nombreFichero, int& nLineas,
             getline(f, linea);            // Intenta leer una nueva línea.
         }
         f.close();                        // Libera el fichero asociado a «f».
+        return true;
     }
     else {
         cerr << "No se ha podido abrir el fichero \"" << nombreFichero << "\"."
              << endl;
-        nLineas = -1;
-        nCaracteres = -1;
+        return false;
     }
 }
 
 /*
  * Pre:  «nombreFichero» es el nombre de un fichero de texto válido
  *       listo para su inspección.
- * Post: Asigna a «nLineas» el número de líneas del fichero y
- *       a «nCaracteres» el número de caracteres del mismo.
+ * Post: Si el fichero de nombre «nombreFichero» se ha podido leer, ha asignado
+ *       a «nLineas» el número de líneas del fichero y a «nCaracteres» el número
+ *       de caracteres del mismo y ha devuelto «true». En caso contrario, ha
+ *       devuelto «false».
  * Nota: Solución que lee carácter a carácter.
  */
-void contabilizar2(const string nombreFichero,
-                   int& nLineas, int& nCaracteres) {
+bool contabilizar2(const string nombreFichero,
+                   unsigned& nLineas, unsigned& nCaracteres) {
     ifstream f;                         // Declara un flujo de entrada.
     f.open(nombreFichero);   // Asocia a «f» el fichero de nombre «nombreFichero».
     if (f.is_open()) {
@@ -67,12 +71,12 @@ void contabilizar2(const string nombreFichero,
             f.get(c);                   // Intenta leer el siguiente carácter.
         }
         f.close();   // Libera el fichero asociado a «f».
+        return true;
     }
     else {
         cerr << "No se ha podido abrir el fichero \"" << nombreFichero << "\"."
              << endl;
-        nLineas = -1;
-        nCaracteres = -1;
+        return false;
     }
 }
 
@@ -86,9 +90,13 @@ void contabilizar2(const string nombreFichero,
 int main() {
     const string NOMBRE_FICHERO = "datos/lope-de-vega.txt";
 
-    unsigned int lineas, caracteres;
-    contabilizar(NOMBRE_FICHERO, lineas, caracteres);
-    cout << '\"' << NOMBRE_FICHERO << "\" tiene " << lineas << " líneas y " 
-         << caracteres << " caracteres." << endl;
-    return 0;
+    unsigned lineas, caracteres;
+    if (contabilizar(NOMBRE_FICHERO, lineas, caracteres)) {
+        cout << '\"' << NOMBRE_FICHERO << "\" tiene " << lineas << " líneas y " 
+            << caracteres << " caracteres." << endl;
+        return 0;
+    }
+    else {
+        return 1;
+    }
 }
