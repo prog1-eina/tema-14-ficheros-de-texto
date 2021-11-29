@@ -47,29 +47,6 @@
             "problemMatcher": ["$gcc"],
         },
         {
-            "label": "Compilar «fichero-nifs-alt»",
-            "type": "shell",
-            "command": "make",
-            "windows": {
-                "command": "mingw32-make.exe",
-            },
-            "args": [
-                "fichero-nifs-alt"
-            ],
-            "problemMatcher": ["$gcc"],
-            "group": "build",
-        },
-        {
-            "label": "Ejecutar «fichero-nifs-alt»",
-            "type": "shell",
-            "command": "bin/fichero-nifs-alt",
-            "windows": {
-                "command": "chcp 65001 ; bin\\fichero-nifs-alt.exe",
-            },
-            "dependsOn": "Compilar «fichero-nifs-alt»",
-            "problemMatcher": ["$gcc"],
-        },
-        {
             "label": "Limpiar resultados de compilación",
             "type": "shell",
             "command": "make",
