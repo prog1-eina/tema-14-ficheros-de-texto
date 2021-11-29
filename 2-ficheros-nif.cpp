@@ -25,8 +25,8 @@ using namespace std;
 
 /*
  * Pre:  El contenido del fichero de nombre «nombreFichero» sigue la sintaxis de
- *       la regla <fichero-nif> y el número de NIF almacenados en el fichero
- *       «nombreFichero» es menor  o igual a la dimensión del vector «T».
+ *       la regla <fichero-nif> y el número de NIF válidos almacenados en el
+ *       fichero «nombreFichero» es menor o igual a la dimensión del vector «T».
  * Post: Ha asignado a «nDatos» el número de NIF válidos del fichero y ha
  *       almacenado en las primeras «nDatos» componentes del vector «T» la
  *       información de los NIF válidos almacenados en el fichero. A «nErroneos»
@@ -67,11 +67,11 @@ bool leerFicheroNif(const string nombreFichero, Nif T[],
  * Pre:  ---
  * Post: Crea un fichero de texto de nombre «nombreFichero» en el que almacena
  *       los NIF de las primeras «n» componentes de «T», a razón de un NIF por
- *       línea, separando el número de DNI de la letra mediante un espacio en
- *       blanco. Si el fichero no se ha podido escribir, ha escrito un mensaje
- *       de error en «cerr».
+ *       línea, separando el número de DNI de la letra mediante un guion. Si el
+ *       fichero se ha podido escribir ha devuelto «true»; en caso contrario, ha
+ *       escrito un mensaje de error en «cerr» y ha devuelto «false».
  */
-void escribirFicheroNif(const string nombreFichero, const Nif T[],
+bool escribirFicheroNif(const string nombreFichero, const Nif T[],
                         const unsigned n) {
     ofstream f;
     f.open(nombreFichero);
@@ -80,10 +80,12 @@ void escribirFicheroNif(const string nombreFichero, const Nif T[],
             f << T[i].dni << "-" << T[i].letra << endl;
         }
         f.close();
+        return true;
     }
     else {
         cerr << "No se ha podido escribir en el fichero \""
              << nombreFichero << "\"." << endl;
+        return false;
     }
 }
 
