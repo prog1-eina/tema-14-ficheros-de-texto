@@ -26,10 +26,10 @@ FICHERO_NIFS_OBJECTS = $(addprefix $(BUILD_DIR)/, 2-ficheros-nif.o nif.o)
 ## Reglas del fichero «Makefile»
 
 contar: $(SOURCE_DIR)/1-contar.cpp | $(BIN_DIR)
-	$(CXX) -g -o $(BIN_DIR)/$@ $(SOURCE_DIR)/1-contar.cpp -static
+	$(CXX) -g -o $(BIN_DIR)/$@ $^ -static
 
 fichero-nifs: $(FICHERO_NIFS_OBJECTS) | $(BIN_DIR)
-	$(CXX) -g -o $(BIN_DIR)/$@ $(FICHERO_NIFS_OBJECTS) -static
+	$(CXX) -g -o $(BIN_DIR)/$@ $^ -static
 
 $(BUILD_DIR)/%.o: %.cpp | $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@  
