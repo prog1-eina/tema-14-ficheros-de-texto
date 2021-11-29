@@ -1,7 +1,7 @@
 /******************************************************************************\
  * Curso de Programación 1. Tema 14 (Ficheros de texto)
  * Autores: Javier Martínez y Miguel Ángel Latre
- * Última revisión: 26 de noviembre de 2018
+ * Última revisión: 29 de noviembre de 2021
  * Resumen: Algunas funciones que trabajan con ficheros de texto.
 \******************************************************************************/
 
@@ -27,12 +27,10 @@ bool contabilizar(const string nombreFichero, unsigned& nLineas,
         nLineas = 0;
         nCaracteres = 0;                  // Solución inicial provisional
         string linea;                     // Para almacenar las líneas leídas
-        getline(f, linea);                // Intenta leer una primera línea.
-        while (!f.eof()) {
+        while (getline(f, linea)) {
             // Mientras el último intento de lectura fue correcto
             nLineas++;                    // Actualiza el número de líneas...
             nCaracteres += linea.length() + 1;           // ... y caracteres.
-            getline(f, linea);            // Intenta leer una nueva línea.
         }
         f.close();                        // Libera el fichero asociado a «f».
         return true;
@@ -61,14 +59,13 @@ bool contabilizar2(const string nombreFichero,
         nLineas = 0;
         nCaracteres = 0;                // Solución inicial provisional
         char c;
-        f.get(c);                       // Intenta leer un primer carácter de «f».
-        while(!f.eof()) {
+        while(f.get(c)) {
+            // Mientras el último intento de lectura fue correcto
             nCaracteres++;              // Cuenta el último caracter leído.
             if ('\n' == c) {
                 // Si el último caracter leído es un cambio de línea...
                 nLineas++;              // ... cuenta una línea más.
             }
-            f.get(c);                   // Intenta leer el siguiente carácter.
         }
         f.close();   // Libera el fichero asociado a «f».
         return true;

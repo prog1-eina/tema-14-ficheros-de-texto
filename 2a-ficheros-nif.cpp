@@ -1,7 +1,7 @@
 ﻿/******************************************************************************\
  * Curso de Programación 1. Tema 14 (Ficheros de texto)
  * Autores: Javier Martínez y Miguel Ángel Latre
- * Última revisión: 27 de noviembre de 2019
+ * Última revisión: 29 de noviembre de 2021
  * Resumen: Funciones que trabajan con ficheros de NIF
  * Nota: El código de este programa está repartido en varios módulos.
  *       Para compilarlo, hay que ejecutar el comando
@@ -31,37 +31,34 @@ using namespace std;
  *       almacenado en las primeras «nDatos» componentes del vector «T» la
  *       información de los NIF válidos almacenados en el fichero. A «nErroneos»
  *       le ha asignado el número total de NIF del fichero no válidos. Si el
- *       fichero no se ha podido abrir, ha asignado -1 tanto a «nDatos» como
- *       «nErroneos» y ha escrito un mensaje de error.
+ *       fichero se ha podido abrir, ha devuelto «true». En caso contrario, ha
+ *       devuelto «false» y ha escrito un mensaje de error.
  */
-void leerFicheroNif(const string nombreFichero, Nif T[],
-                   int& nDatos, int& nErroneos) {
+bool leerFicheroNif(const string nombreFichero, Nif T[],
+                    unsigned& nDatos, unsigned& nErroneos) {
     ifstream f;
     f.open(nombreFichero);
     if (f.is_open()) {
         nDatos = 0;
         nErroneos = 0;
-
-        // Se intenta leer el primer NIF en la componente T[0]:
-        f >> T[nDatos].dni >> T[nDatos].letra;
-        while (!f.eof()) {
-            // La última lectura fue correcta, no se había acabado el fichero
+        char ignorarGuion;
+        while (f >> T[nDatos].dni >> ignorarGuion >> T[nDatos].letra) {
+        // Mientras el último intento de lectura fue correcto
+            // Se procesan los últimos datos leídos:
             if (esValido(T[nDatos])) {
                 nDatos++;
             }
             else {
                 nErroneos++;
             }
-            // Se intenta leer el primer NIF en la componente T[nDatos]:
-            f >> T[nDatos].dni >> T[nDatos].letra;
         }
-        f.close();                    // Libera el fichero
+        f.close();
+        return true;
     }
     else {
         cerr << "No se ha podido leer del fichero \"" << nombreFichero << "\""
              << endl;
-        nDatos = -1;
-        nErroneos = -1;
+        return false;
     }
 }
 
@@ -80,7 +77,7 @@ void escribirFicheroNif(const string nombreFichero, const Nif T[],
     f.open(nombreFichero);
     if (f.is_open()) {
         for (unsigned i = 0; i < n; i++) {
-            f << T[i].dni << " " << T[i].letra << endl;
+            f << T[i].dni << "-" << T[i].letra << endl;
         }
         f.close();
     }
@@ -95,14 +92,15 @@ void escribirFicheroNif(const string nombreFichero, const Nif T[],
  * Programa de ejemplo de uso de las funciones anteriores.
  */ 
 int main() {
-    const string NOMBRE_FICHERO_ORIGEN = "datos/nifs-ejemplo.txt";
+    const string NOMBRE_FICHERO_ORIGEN = "datos/nifs-ejemplo_.txt";
     const string NOMBRE_FICHERO_DESTINO = "datos/nifs-ejemplo-corregido.txt";
     const unsigned MAX_NIFS = 1000;
     Nif vectorNifs[MAX_NIFS];
-    int nDatos, nErroneos;
+    unsigned nDatos, nErroneos;
     
-    leerFicheroNif(NOMBRE_FICHERO_ORIGEN, vectorNifs, nDatos, nErroneos);
-    if (nDatos >= 0 && nErroneos >= 0) {
+    bool lecturaCorrecta = leerFicheroNif(NOMBRE_FICHERO_ORIGEN,
+                                          vectorNifs, nDatos, nErroneos);
+    if (lecturaCorrecta) {
         cout << "Leído el fichero. " << endl;
         cout << nDatos << " NIF correctos y " << nErroneos << " incorrectos" << endl;
         escribirFicheroNif(NOMBRE_FICHERO_DESTINO, vectorNifs, nDatos);
