@@ -42,6 +42,7 @@ bool contabilizar(const string nombreFichero, unsigned& nLineas,
     }
 }
 
+
 /*
  * Pre:  «nombreFichero» es el nombre de un fichero de texto válido
  *       listo para su inspección.
