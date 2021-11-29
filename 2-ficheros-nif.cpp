@@ -94,7 +94,7 @@ bool escribirFicheroNif(const string nombreFichero, const Nif T[],
  * Programa de ejemplo de uso de las funciones anteriores.
  */ 
 int main() {
-    const string NOMBRE_FICHERO_ORIGEN = "datos/nifs-ejemplo_.txt";
+    const string NOMBRE_FICHERO_ORIGEN = "datos/nifs-ejemplo.txt";
     const string NOMBRE_FICHERO_DESTINO = "datos/nifs-ejemplo-corregido.txt";
     const unsigned MAX_NIFS = 1000;
     Nif vectorNifs[MAX_NIFS];
