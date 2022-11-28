@@ -26,7 +26,7 @@ using namespace std;
  * Pre:  El contenido del fichero de nombre «nombreFichero» sigue la sintaxis de la regla
  *       <fichero-nif> y el número de NIF válidos almacenados en el fichero «nombreFichero» es
  *       menor o igual a la dimensión del vector «T».
-  * Post: Asigna a «nDatos» el número de NIF válidos del fichero y almacena en las primeras
+ * Post: Asigna a «nDatos» el número de NIF válidos del fichero y almacena en las primeras
  *       «nDatos» componentes del vector «T» la información de los NIF válidos almacenados en
  *       el fichero. A  «nErroneos» le asigna el número total de NIF del fichero no  válidos.
  *       Si el fichero se puede abrir, devuelve «true». En  caso contrario, devuelve «false» y
