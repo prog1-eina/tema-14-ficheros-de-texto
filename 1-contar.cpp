@@ -22,9 +22,9 @@
 using namespace std;
 
 /*
- * Pre:  «nombreFichero» es el nombre de un fichero de texto existente y accesible para su
+  * Pre:  «nombreFichero» es el nombre de un fichero de texto existente y accesible para su
  *       lectura.
- * Post: Si el fichero de nombre «nombreFichero» se puede leer, asigna a «nLineas» el número de
+  * Post: Si el fichero de nombre «nombreFichero» se puede leer, asigna a «nLineas» el número de
  *       líneas que contiene del fichero y a «nCaracteres», el número de caracteres del mismo y
  *       devuelve «true». En caso contrario, devuelve «false».
  * Nota: Solución que lee línea a línea.
@@ -54,9 +54,9 @@ bool contabilizar(const string nombreFichero, unsigned& nLineas,
 
 
 /*
- * Pre:  «nombreFichero» es el nombre de un fichero de texto existente y accesible para su
+  * Pre:  «nombreFichero» es el nombre de un fichero de texto existente y accesible para su
  *       lectura.
- * Post: Si el fichero de nombre «nombreFichero» se puede leer, asigna a «nLineas» el número de
+  * Post: Si el fichero de nombre «nombreFichero» se puede leer, asigna a «nLineas» el número de
  *       líneas que contiene del fichero y a «nCaracteres», el número de caracteres del mismo y
  *       devuelve «true». En caso contrario, devuelve «false».
  * Nota: Solución que lee carácter a carácter.
