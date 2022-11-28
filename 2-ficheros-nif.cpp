@@ -1,4 +1,4 @@
-﻿/******************************************************************************\
+﻿/*********************************************************************************************\
  * Curso de Programación 1. Tema 14 (Ficheros de texto)
  * Autores: Javier Martínez y Miguel Ángel Latre
  * Última revisión: 29 de noviembre de 2021
@@ -15,8 +15,7 @@
  *       o, en Windows,
  *           bin\fichero-nifs.exe
  *       o ejecutar la tarea "Ejecutar «fichero-nifs»" de VSC.
-\******************************************************************************/
-
+\*********************************************************************************************/
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -24,15 +23,14 @@
 using namespace std;
 
 /*
- * Pre:  El contenido del fichero de nombre «nombreFichero» sigue la sintaxis de
- *       la regla <fichero-nif> y el número de NIF válidos almacenados en el
- *       fichero «nombreFichero» es menor o igual a la dimensión del vector «T».
- * Post: Ha asignado a «nDatos» el número de NIF válidos del fichero y ha
- *       almacenado en las primeras «nDatos» componentes del vector «T» la
- *       información de los NIF válidos almacenados en el fichero. A «nErroneos»
- *       le ha asignado el número total de NIF del fichero no válidos. Si el
- *       fichero se ha podido abrir, ha devuelto «true». En caso contrario, ha
- *       devuelto «false» y ha escrito un mensaje de error.
+ * Pre:  El contenido del fichero de nombre «nombreFichero» sigue la sintaxis de la regla
+ *       <fichero-nif> y el número de NIF válidos almacenados en el fichero «nombreFichero» es
+ *       menor o igual a la dimensión del vector «T».
+ * Post: Asigna a «nDatos» el número de NIF válidos del fichero y almacena en las primeras
+ *       «nDatos» componentes del vector «T» la información de los NIF válidos almacenados en
+ *       el fichero. A «nErroneos» le asigna el número total de NIF del fichero no válidos.
+ *       Si el fichero se puede abrir, devuelve «true». En caso contrario, devuelve «false» y
+ *       escribe un mensaje de error.
  */
 bool leerFicheroNif(const string nombreFichero, Nif T[],
                     unsigned& nDatos, unsigned& nErroneos) {
@@ -65,11 +63,10 @@ bool leerFicheroNif(const string nombreFichero, Nif T[],
 
 /*
  * Pre:  ---
- * Post: Crea un fichero de texto de nombre «nombreFichero» en el que almacena
- *       los NIF de las primeras «n» componentes de «T», a razón de un NIF por
- *       línea, separando el número de DNI de la letra mediante un guion. Si el
- *       fichero se ha podido escribir ha devuelto «true»; en caso contrario, ha
- *       escrito un mensaje de error en «cerr» y ha devuelto «false».
+ * Post: Crea un fichero de texto de nombre «nombreFichero» en el que almacena los NIF de las
+ *       primeras «n» componentes de «T», a razón de un NIF por línea, separando el número de
+ *       DNI de la letra mediante un guion. Si el fichero se puede escribir devuelve «true»;
+ *       en caso contrario, escribe un mensaje de error en «cerr» y devuelve «false».
  */
 bool escribirFicheroNif(const string nombreFichero, const Nif T[],
                         const unsigned n) {

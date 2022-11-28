@@ -10,28 +10,23 @@ El fichero ``1-contar.cpp`` contiene un programa completo, por lo que puede comp
 
 También puede compilarse desde la terminal través de la orden
 
-    g++ -Wall -Wextra 1-contar.cpp -o 1-contar
+    g++ -Wall -Wextra 1-contar.cpp -o 1-contar
 
 o desde Visual Studio Code, ejecutando la tarea ``Compilar «contar»``
 
 Puede ejecutarse en Windows, después de ser compilado, a través de la orden
 
-    .\1-contar.exe
+    .\1-contar.exe
 
 y en Linux o macOS, a través de la orden
 
-    ./1-contar
+    ./1-contar
 
-y en ambos casos, desde Visual Studio Code, ejecutando la tarea ``Ejecutar «contar»``
+y en ambos casos, desde Visual Studio Code, ejecutando la tarea ``Ejecutar «contar»``.
 
-### `2a-ficheros-nif.cpp`
+### `2-ficheros-nif.cpp`
 
-El programa del fichero `2-ficheros-nif.cpp` necesita del módulo «nif» del
-[repositorio del tema 11 (registros)](https://github.com/prog1-eina/tema-11-registros).
-El fichero `Makefile` ha sido
-configurado suponiendo que el directorio del código del tema 11 se encuentra en
-un directorio denominado `tema-11-registros` ubicado en la misma carpeta que el
-directorio del código de este repositorio.
+El programa del fichero `2-ficheros-nif.cpp` necesita del módulo «nif» del [repositorio del tema 11 (registros)](https://github.com/prog1-eina/tema-11-registros). El fichero `Makefile` ha sido configurado suponiendo que el directorio del código del tema 11 se encuentra en un directorio denominado `tema-11-registros` ubicado en la misma carpeta que el directorio del código de este repositorio.
 
  Para compilarlo, hay que ejecutar el comando
 
