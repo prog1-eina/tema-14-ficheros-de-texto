@@ -44,8 +44,7 @@ bool contabilizar(const string nombreFichero, unsigned& nLineas,
         }
         f.close();                        // Libera el fichero asociado a «f».
         return true;
-    }
-    else {
+    } else {
         cerr << "No se ha podido abrir el fichero \"" << nombreFichero << "\"."
              << endl;
         return false;
@@ -79,8 +78,7 @@ bool contabilizar2(const string nombreFichero,
         }
         f.close();   // Libera el fichero asociado a «f».
         return true;
-    }
-    else {
+    } else {
         cerr << "No se ha podido abrir el fichero \"" << nombreFichero << "\"."
              << endl;
         return false;
@@ -102,8 +100,7 @@ int main() {
         cout << '\"' << NOMBRE_FICHERO << "\" tiene " << lineas << " líneas y " 
             << caracteres << " caracteres." << endl;
         return 0;
-    }
-    else {
+    } else {
         return 1;
     }
 }

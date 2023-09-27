@@ -45,15 +45,13 @@ bool leerFicheroNif(const string nombreFichero, Nif T[],
             // Se procesan los últimos datos leídos:
             if (esValido(T[nDatos])) {
                 nDatos++;
-            }
-            else {
+            } else {
                 nErroneos++;
             }
         }
         f.close();
         return true;
-    }
-    else {
+    } else {
         cerr << "No se ha podido leer del fichero \"" << nombreFichero << "\""
              << endl;
         return false;
@@ -78,8 +76,7 @@ bool escribirFicheroNif(const string nombreFichero, const Nif T[],
         }
         f.close();
         return true;
-    }
-    else {
+    } else {
         cerr << "No se ha podido escribir en el fichero \""
              << nombreFichero << "\"." << endl;
         return false;
@@ -104,8 +101,7 @@ int main() {
         cout << nDatos << " NIF correctos y " << nErroneos << " incorrectos" << endl;
         escribirFicheroNif(NOMBRE_FICHERO_DESTINO, vectorNifs, nDatos);
         return 0;
-    }
-    else {
+    } else {
         return 1;
     }
 }
