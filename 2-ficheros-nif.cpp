@@ -6,9 +6,7 @@
  * Nota: El código de este programa está repartido en varios módulos.
  *       Para compilarlo, hay que ejecutar el comando
  *           make fichero-nifs
- *       o, en Windows,
- *           mingw32-make fichero-nifs
- *       o ejecutar la tarea "Compilar «fichero-nifs»" de VSC.
+  *       o ejecutar la tarea "Compilar «fichero-nifs»" de VSC.
  * 
  *       Para ejecutarlo, una vez compilado, hay que ejecutar el comando
  *           bin/fichero-nifs

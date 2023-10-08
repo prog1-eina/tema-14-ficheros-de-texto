@@ -10,9 +10,6 @@
             "label": "Compilar «contar»",
             "type": "shell",
             "command": "make",
-            "windows": {
-                "command": "mingw32-make.exe",
-            },
             "args": [
                 "contar"
             ],
@@ -33,9 +30,6 @@
             "label": "Compilar «fichero-nifs»",
             "type": "shell",
             "command": "make",
-            "windows": {
-                "command": "mingw32-make.exe",
-            },
             "args": [
                 "fichero-nifs"
             ],
@@ -56,9 +50,6 @@
             "label": "Limpiar resultados de compilación",
             "type": "shell",
             "command": "make",
-            "windows": {
-                "command": "mingw32-make.exe",
-            },
             "args": [
                 "clean"
             ],

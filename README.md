@@ -28,13 +28,9 @@ y en ambos casos, desde Visual Studio Code, ejecutando la tarea ``Ejecutar «con
 
 El programa del fichero `2-ficheros-nif.cpp` necesita del módulo «nif» del [repositorio del tema 11 (registros)](https://github.com/prog1-eina/tema-11-registros). El fichero `Makefile` ha sido configurado suponiendo que el directorio del código del tema 11 se encuentra en un directorio denominado `tema-11-registros` ubicado en la misma carpeta que el directorio del código de este repositorio.
 
- Para compilarlo, hay que ejecutar el comando
+Para compilarlo, hay que ejecutar el comando
 
     make fichero-nifs
-
- o, en Windows,
-
-    mingw32-make fichero-nifs
 
 o ejecutar la tarea ``Compilar «fichero-nifs»`` de VSC.
 
