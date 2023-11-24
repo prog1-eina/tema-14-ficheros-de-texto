@@ -1,7 +1,7 @@
 /*********************************************************************************************\
  * Curso de Programación 1. Tema 14 (Ficheros de texto)
- * Autores: Javier Martínez y Miguel Ángel Latre
- * Última revisión: 29 de noviembre de 2021
+ * Autores: Javier Martínez, Miguel Ángel Latre y Ricardo J. Rodríguez
+ * Última revisión: 24 de noviembre de 2023
  * Resumen: Algunas funciones que trabajan con ficheros de texto.
  * Nota: Este fichero contiene un programa completo, por lo que puede compilarse y ejecutarse
  *       con la extensión Code Runner de Visual Studio Code.
@@ -26,11 +26,12 @@ using namespace std;
  *       lectura.
  * Post: Si el fichero de nombre «nombreFichero» se puede leer, asigna a «nLineas» el número de
  *       líneas que contiene del fichero y a «nCaracteres», el número de caracteres del mismo y
- *       devuelve «true». En caso contrario, devuelve «false».
+ *       asigna «true» a «lecturaOK». En caso contrario, asigna «false» a «lecturaOK» e informa
+ *       del error ocurrido por «cerr».
  * Nota: Solución que lee línea a línea.
  */
-bool contabilizar(const string nombreFichero, unsigned& nLineas,
-                  unsigned& nCaracteres) {
+void contabilizar(const string nombreFichero, unsigned& nLineas,
+                  unsigned& nCaracteres, bool& lecturaOK) {
     ifstream f;                      // Declara un flujo de entrada.
     f.open (nombreFichero);          // Asocia a «f» el fichero «nombreFichero».
     if (f.is_open()) {
@@ -43,11 +44,11 @@ bool contabilizar(const string nombreFichero, unsigned& nLineas,
             nCaracteres += linea.length() + 1;           // ... y caracteres.
         }
         f.close();                        // Libera el fichero asociado a «f».
-        return true;
+        lecturaOK = true;
     } else {
         cerr << "No se ha podido abrir el fichero \"" << nombreFichero << "\"."
              << endl;
-        return false;
+        lecturaOK = false;
     }
 }
 
@@ -57,11 +58,12 @@ bool contabilizar(const string nombreFichero, unsigned& nLineas,
  *       lectura. 
  * Post: Si el fichero de nombre «nombreFichero» se puede leer, asigna a «nLineas» el número de
  *       líneas que contiene del fichero y a «nCaracteres», el número de caracteres del mismo y
- *       devuelve «true». En caso contrario, devuelve «false».
+ *       asigna «true» a «lecturaOK». En caso contrario, asigna «false» a «lecturaOK» e informa
+ *       del error ocurrido por «cerr».
  * Nota: Solución que lee carácter a carácter.
  */
-bool contabilizar2(const string nombreFichero,
-                   unsigned& nLineas, unsigned& nCaracteres) {
+void contabilizar2(const string nombreFichero,
+                   unsigned& nLineas, unsigned& nCaracteres, bool& lecturaOk) {
     ifstream f;                         // Declara un flujo de entrada.
     f.open(nombreFichero);   // Asocia a «f» el fichero de nombre «nombreFichero».
     if (f.is_open()) {
@@ -77,11 +79,11 @@ bool contabilizar2(const string nombreFichero,
             }
         }
         f.close();   // Libera el fichero asociado a «f».
-        return true;
+        lecturaOk = true;
     } else {
         cerr << "No se ha podido abrir el fichero \"" << nombreFichero << "\"."
              << endl;
-        return false;
+        lecturaOk = false;
     }
 }
 
@@ -96,9 +98,11 @@ int main() {
     const string NOMBRE_FICHERO = "datos/lope-de-vega.txt";
 
     unsigned lineas, caracteres;
-    if (contabilizar(NOMBRE_FICHERO, lineas, caracteres)) {
+    bool lecturaOk;
+    contabilizar(NOMBRE_FICHERO, lineas, caracteres, lecturaOk);
+    if (lecturaOk) {
         cout << '\"' << NOMBRE_FICHERO << "\" tiene " << lineas << " líneas y " 
-            << caracteres << " caracteres." << endl;
+             << caracteres << " caracteres." << endl;
         return 0;
     } else {
         return 1;

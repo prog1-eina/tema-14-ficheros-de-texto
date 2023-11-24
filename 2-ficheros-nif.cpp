@@ -1,7 +1,7 @@
 ﻿/*********************************************************************************************\
  * Curso de Programación 1. Tema 14 (Ficheros de texto)
- * Autores: Javier Martínez y Miguel Ángel Latre
- * Última revisión: 29 de noviembre de 2021
+ * Autores: Javier Martínez, Miguel Ángel Latre y Ricardo J. Rodríguez
+ * Última revisión: 24 de noviembre de 2023
  * Resumen: Funciones que trabajan con ficheros de NIF
  * Nota: El código de este programa está repartido en varios módulos.
  *       Para compilarlo, hay que ejecutar el comando
@@ -26,12 +26,12 @@ using namespace std;
  *       menor o igual a la dimensión del vector «T».
  * Post: Asigna a «nDatos» el número de NIF válidos del fichero y almacena en las primeras
  *       «nDatos» componentes del vector «T» la información de los NIF válidos almacenados en
- *       el fichero. A  «nErroneos» le asigna el número total de NIF del fichero no  válidos.
- *       Si el fichero se puede abrir, devuelve «true». En  caso contrario, devuelve «false» y
- *       escribe un mensaje de error.
+ *       el fichero. A «nErroneos» le asigna el número total de NIF del fichero no válidos.
+ *       Si el fichero se puede abrir, asigna «true» a «lecturaOk». En caso contrario, asigna
+ *       «false» y escribe un mensaje de error por «cerr».
  */
-bool leerFicheroNif(const string nombreFichero, Nif T[],
-                    unsigned& nDatos, unsigned& nErroneos) {
+void leerFicheroNif(const string nombreFichero, Nif T[],
+                    unsigned& nDatos, unsigned& nErroneos, bool& lecturaOk) {
     ifstream f;
     f.open(nombreFichero);
     if (f.is_open()) {
@@ -48,11 +48,11 @@ bool leerFicheroNif(const string nombreFichero, Nif T[],
             }
         }
         f.close();
-        return true;
+        lecturaOk = true;
     } else {
         cerr << "No se ha podido leer del fichero \"" << nombreFichero << "\""
              << endl;
-        return false;
+        lecturaOk = false;
     }
 }
 
@@ -61,11 +61,12 @@ bool leerFicheroNif(const string nombreFichero, Nif T[],
  * Pre:  ---
  * Post: Crea un fichero de texto de nombre «nombreFichero» en el que almacena los NIF de las
  *       primeras «n» componentes de «T», a razón de un NIF por línea, separando el número de
- *       DNI de la letra mediante un guion. Si el fichero se puede escribir devuelve «true»;
- *       en caso contrario, escribe un mensaje de error en «cerr» y devuelve «false».
+ *       DNI de la letra mediante un guion.
+ *       Si el fichero se puede crear, asigna «true» a «escrituraOk». En caso contrario, asigna
+ *       «false» y escribe un mensaje de error por «cerr».
  */
-bool escribirFicheroNif(const string nombreFichero, const Nif T[],
-                        const unsigned n) {
+void escribirFicheroNif(const string nombreFichero, const Nif T[],
+                        const unsigned n, bool& escrituraOk) {    
     ofstream f;
     f.open(nombreFichero);
     if (f.is_open()) {
@@ -73,11 +74,11 @@ bool escribirFicheroNif(const string nombreFichero, const Nif T[],
             f << T[i].dni << "-" << T[i].letra << endl;
         }
         f.close();
-        return true;
+        escrituraOk = true;
     } else {
         cerr << "No se ha podido escribir en el fichero \""
              << nombreFichero << "\"." << endl;
-        return false;
+        escrituraOk = false;
     }
 }
 
@@ -92,12 +93,15 @@ int main() {
     Nif vectorNifs[MAX_NIFS];
     unsigned nDatos, nErroneos;
     
-    bool lecturaCorrecta = leerFicheroNif(NOMBRE_FICHERO_ORIGEN,
-                                          vectorNifs, nDatos, nErroneos);
+    bool lecturaCorrecta, escrituraCorrecta;
+    leerFicheroNif(NOMBRE_FICHERO_ORIGEN, vectorNifs, nDatos, nErroneos, lecturaCorrecta);
     if (lecturaCorrecta) {
         cout << "Leído el fichero. " << endl;
         cout << nDatos << " NIF correctos y " << nErroneos << " incorrectos" << endl;
-        escribirFicheroNif(NOMBRE_FICHERO_DESTINO, vectorNifs, nDatos);
+        escribirFicheroNif(NOMBRE_FICHERO_DESTINO, vectorNifs, nDatos, escrituraCorrecta);
+    }
+    
+    if (lecturaCorrecta && escrituraCorrecta) {
         return 0;
     } else {
         return 1;
