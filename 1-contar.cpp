@@ -58,7 +58,7 @@ void contabilizar(const string nombreFichero, unsigned& nLineas,
  *       lectura. 
  * Post: Si el fichero de nombre «nombreFichero» se puede leer, asigna a «nLineas» el número de
  *       líneas que contiene del fichero y a «nCaracteres», el número de caracteres del mismo y
- *       asigna «true» a «lecturaOK». En caso contrario, asigna «false» a «lecturaOK» e informa
+ *       asigna «true» a «lecturaOk». En caso contrario, asigna «false» a «lecturaOk» e informa
  *       del error ocurrido por «cerr».
  * Nota: Solución que lee carácter a carácter.
  */
