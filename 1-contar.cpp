@@ -30,8 +30,8 @@ using namespace std;
  *       del error ocurrido por «cerr».
  * Nota: Solución que lee línea a línea.
  */
-void contabilizar(const string nombreFichero, unsigned& nLineas,
-                  unsigned& nCaracteres, bool& lecturaOK) {
+void contabilizar(const string nombreFichero, unsigned &nLineas,
+                  unsigned &nCaracteres, bool &lecturaOK) {
     ifstream f;                      // Declara un flujo de entrada.
     f.open (nombreFichero);          // Asocia a «f» el fichero «nombreFichero».
     if (f.is_open()) {
@@ -63,7 +63,7 @@ void contabilizar(const string nombreFichero, unsigned& nLineas,
  * Nota: Solución que lee carácter a carácter.
  */
 void contabilizar2(const string nombreFichero,
-                   unsigned& nLineas, unsigned& nCaracteres, bool& lecturaOk) {
+                   unsigned &nLineas, unsigned &nCaracteres, bool &lecturaOk) {
     ifstream f;                         // Declara un flujo de entrada.
     f.open(nombreFichero);   // Asocia a «f» el fichero de nombre «nombreFichero».
     if (f.is_open()) {

@@ -31,7 +31,7 @@ using namespace std;
  *       «false» y escribe un mensaje de error por «cerr».
  */
 void leerFicheroNif(const string nombreFichero, Nif T[],
-                    unsigned& nDatos, unsigned& nErroneos, bool& lecturaOk) {
+                    unsigned &nDatos, unsigned &nErroneos, bool &lecturaOk) {
     ifstream f;
     f.open(nombreFichero);
     if (f.is_open()) {
@@ -66,7 +66,7 @@ void leerFicheroNif(const string nombreFichero, Nif T[],
  *       «false» y escribe un mensaje de error por «cerr».
  */
 void escribirFicheroNif(const string nombreFichero, const Nif T[],
-                        const unsigned n, bool& escrituraOk) {    
+                        const unsigned n, bool &escrituraOk) {    
     ofstream f;
     f.open(nombreFichero);
     if (f.is_open()) {
