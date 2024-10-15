@@ -21,7 +21,8 @@
             "type": "shell",
             "command": "bin/contar",
             "windows": {
-                "command": "chcp 65001 ; bin\\contar.exe",
+                "command": "cmd",
+                "args": ["/c", "chcp 65001 && bin\\contar.exe"]
             },
             "dependsOn": "Compilar «contar»",
             "problemMatcher": ["$gcc"],
@@ -41,7 +42,8 @@
             "type": "shell",
             "command": "bin/fichero-nifs",
             "windows": {
-                "command": "chcp 65001 ; bin\\fichero-nifs.exe",
+                "command": "cmd",
+                "args": ["/c", "chcp 65001 && bin\\fichero-nifs.exe"]
             },
             "dependsOn": "Compilar «fichero-nifs»",
             "problemMatcher": ["$gcc"],
