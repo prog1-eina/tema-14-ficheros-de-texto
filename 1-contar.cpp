@@ -33,7 +33,7 @@ using namespace std;
 void contabilizar(const string nombreFichero, unsigned &nLineas,
                   unsigned &nCaracteres, bool &lecturaOK) {
     ifstream f;                      // Declara un flujo de entrada.
-    f.open (nombreFichero);          // Asocia a «f» el fichero «nombreFichero».
+    f.open(nombreFichero);          // Asocia a «f» el fichero «nombreFichero».
     if (f.is_open()) {
         nLineas = 0;
         nCaracteres = 0;                  // Solución inicial provisional
