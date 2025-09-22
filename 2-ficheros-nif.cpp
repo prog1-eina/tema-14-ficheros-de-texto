@@ -1,4 +1,4 @@
-﻿/*********************************************************************************************\
+﻿/******************************************************************************
  * Curso de Programación 1. Tema 14 (Ficheros de texto)
  * Autores: Javier Martínez, Miguel Ángel Latre y Ricardo J. Rodríguez
  * Última revisión: 24 de noviembre de 2023
@@ -13,7 +13,7 @@
  *       o, en Windows,
  *           bin\fichero-nifs.exe
  *       o ejecutar la tarea "Ejecutar «fichero-nifs»" de VSC.
-\*********************************************************************************************/
+ *****************************************************************************/
 #include <iostream>
 #include <fstream>
 #include <string>
