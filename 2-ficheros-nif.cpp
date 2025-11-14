@@ -21,14 +21,16 @@
 using namespace std;
 
 /*
- * Pre:  El contenido del fichero de nombre «nombreFichero» sigue la sintaxis de la regla
- *       <fichero-nif> y el número de NIF válidos almacenados en el fichero «nombreFichero» es
- *       menor o igual a la dimensión del vector «T».
- * Post: Asigna a «nDatos» el número de NIF válidos del fichero y almacena en las primeras
- *       «nDatos» componentes del vector «T» la información de los NIF válidos almacenados en
- *       el fichero. A «nErroneos» le asigna el número total de NIF del fichero no válidos.
- *       Si el fichero se puede abrir, asigna «true» a «lecturaOk». En caso contrario, asigna
- *       «false» y escribe un mensaje de error por «cerr».
+ * Pre:  El contenido del fichero de nombre «nombreFichero» sigue la sintaxis
+ *       de la regla <fichero-nif> y el número de NIF válidos almacenados en el
+ *       fichero «nombreFichero» es menor o igual a la dimensión del
+ *       vector «T».
+ * Post: Asigna a «nDatos» el número de NIF válidos del fichero y almacena en
+ *       las primeras «nDatos» componentes del vector «T» la información de los
+ *       NIF válidos almacenados en el fichero. A «nErroneos» le asigna el
+ *       número total de NIF del fichero no válidos. Si el fichero se puede
+ *       abrir, asigna «true» a «lecturaOk». En caso contrario, asigna «false»
+ *       y escribe un mensaje de error por «cerr».
  */
 void leerFicheroNif(const string nombreFichero, Nif T[],
                     unsigned &nDatos, unsigned &nErroneos, bool &lecturaOk) {
@@ -59,11 +61,11 @@ void leerFicheroNif(const string nombreFichero, Nif T[],
 
 /*
  * Pre:  ---
- * Post: Crea un fichero de texto de nombre «nombreFichero» en el que almacena los NIF de las
- *       primeras «n» componentes de «T», a razón de un NIF por línea, separando el número de
- *       DNI de la letra mediante un guion.
- *       Si el fichero se puede crear, asigna «true» a «escrituraOk». En caso contrario, asigna
- *       «false» y escribe un mensaje de error por «cerr».
+ * Post: Crea un fichero de texto de nombre «nombreFichero» en el que almacena
+ *       los NIF de las primeras «n» componentes de «T», a razón de un NIF por
+ *       línea, separando el número de DNI de la letra mediante un guion.
+ *       Si el fichero se puede crear, asigna «true» a «escrituraOk». En caso
+ *       contrario, asigna «false» y escribe un mensaje de error por «cerr».
  */
 void escribirFicheroNif(const string nombreFichero, const Nif T[],
                         const unsigned n, bool &escrituraOk) {    
@@ -94,11 +96,14 @@ int main() {
     unsigned nDatos, nErroneos;
     
     bool lecturaCorrecta, escrituraCorrecta;
-    leerFicheroNif(NOMBRE_FICHERO_ORIGEN, vectorNifs, nDatos, nErroneos, lecturaCorrecta);
+    leerFicheroNif(NOMBRE_FICHERO_ORIGEN, vectorNifs, nDatos, nErroneos,
+                   lecturaCorrecta);
     if (lecturaCorrecta) {
         cout << "Leído el fichero. " << endl;
-        cout << nDatos << " NIF correctos y " << nErroneos << " incorrectos" << endl;
-        escribirFicheroNif(NOMBRE_FICHERO_DESTINO, vectorNifs, nDatos, escrituraCorrecta);
+        cout << nDatos << " NIF correctos y " << nErroneos
+             << " incorrectos" << endl;
+        escribirFicheroNif(NOMBRE_FICHERO_DESTINO, vectorNifs, nDatos,
+                           escrituraCorrecta);
     }
     
     if (lecturaCorrecta && escrituraCorrecta) {
