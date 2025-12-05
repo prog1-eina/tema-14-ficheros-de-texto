@@ -16,7 +16,7 @@ VPATH = $(SOURCE_DIR) $(NIFS_DIR)
 
 ## COMPILADOR Y OPCIONES DE COMPILACIÓN:
 CXX = g++
-CXXFLAGS = -g -Wall -Wextra -I$(NIFS_DIR)
+CXXFLAGS = -Og -Wall -Wextra -I$(NIFS_DIR)
 
 
 ## FICHEROS OBJETO (RESULTADOS INTERMEDIOS DE COMPILACIÓN):
@@ -26,10 +26,10 @@ OBJECTS = $(addprefix $(BUILD_DIR)/, 2-ficheros-nif.o nif.o)
 ## Reglas del fichero «Makefile»
 
 contar: $(SOURCE_DIR)/1-contar.cpp | $(BIN_DIR)
-	$(CXX) -g -o $(BIN_DIR)/$@ $^
+	$(CXX) -Og -o $(BIN_DIR)/$@ $^
 
 fichero-nifs: $(OBJECTS) | $(BIN_DIR)
-	$(CXX) -g -o $(BIN_DIR)/$@ $^
+	$(CXX) -Og -o $(BIN_DIR)/$@ $^
 
 $(BUILD_DIR)/%.o: %.cpp | $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@  
