@@ -1,7 +1,6 @@
 ﻿/******************************************************************************
  * Curso de Programación 1. Tema 14 (Ficheros de texto)
  * Autores: Javier Martínez, Miguel Ángel Latre y Ricardo J. Rodríguez
- * Última revisión: 24 de noviembre de 2023
  * Resumen: Funciones que trabajan con ficheros de NIF
  * Nota: El código de este programa está repartido en varios módulos.
  *       Para compilarlo, hay que ejecutar el comando

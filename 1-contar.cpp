@@ -1,7 +1,6 @@
 /******************************************************************************
  * Curso de Programación 1. Tema 14 (Ficheros de texto)
  * Autores: Javier Martínez, Miguel Ángel Latre y Ricardo J. Rodríguez
- * Última revisión: 24 de noviembre de 2023
  * Resumen: Algunas funciones que trabajan con ficheros de texto.
  * Nota: El programa completo está contenido en este fichero, por lo que puede
  *       compilarse y ejecutarse con la extensión Code Runner de
