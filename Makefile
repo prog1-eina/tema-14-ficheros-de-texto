@@ -21,6 +21,7 @@ CXXFLAGS = -g -Wall -Wextra -I$(NIFS_DIR)
 
 ## FICHEROS OBJETO (RESULTADOS INTERMEDIOS DE COMPILACIÓN):
 OBJECTS = $(addprefix $(BUILD_DIR)/, 2-ficheros-nif.o nif.o)
+OBJECTS_ALT = $(addprefix $(BUILD_DIR)/, 2-ficheros-nif-alt.o nif.o)
 
 ################################################################################
 ## Reglas del fichero «Makefile»
@@ -29,6 +30,9 @@ contar: $(SOURCE_DIR)/1-contar.cpp | $(BIN_DIR)
 	$(CXX) -g -o $(BIN_DIR)/$@ $^
 
 fichero-nifs: $(OBJECTS) | $(BIN_DIR)
+	$(CXX) -g -o $(BIN_DIR)/$@ $^
+
+fichero-nifs-alt: $(OBJECTS_ALT) | $(BIN_DIR)
 	$(CXX) -g -o $(BIN_DIR)/$@ $^
 
 $(BUILD_DIR)/%.o: %.cpp | $(BUILD_DIR)

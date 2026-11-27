@@ -54,5 +54,30 @@
             ],
             "preLaunchTask": "Compilar «fichero-nifs»"
         },
+        {
+            "name": "Depurar «fichero-nifs-alt»",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/fichero-nifs-alt",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "osx": {
+                "MIMode": "lldb",
+                "args": ["-arg1", "-arg2"],
+                "externalConsole": true,
+            },
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "Compilar «fichero-nifs-alt»"
+        },
     ]
 }
