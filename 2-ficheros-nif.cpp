@@ -57,7 +57,6 @@ void leerFicheroNif(const string nombreFichero, Nif T[],
     }
 }
 
-
 /*
  * Pre:  ---
  * Post: Crea un fichero de texto de nombre «nombreFichero» en el que almacena
@@ -82,7 +81,6 @@ void escribirFicheroNif(const string nombreFichero, const Nif T[],
         escrituraOk = false;
     }
 }
-
 
 /*
  * Programa de ejemplo de uso de las funciones anteriores.

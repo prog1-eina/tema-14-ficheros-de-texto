@@ -18,7 +18,6 @@ VPATH = $(SOURCE_DIR) $(NIFS_DIR)
 CXX = g++
 CXXFLAGS = -g -Wall -Wextra -I$(NIFS_DIR)
 
-
 ## FICHEROS OBJETO (RESULTADOS INTERMEDIOS DE COMPILACIÓN):
 OBJECTS = $(addprefix $(BUILD_DIR)/, 2-ficheros-nif.o nif.o)
 OBJECTS_ALT = $(addprefix $(BUILD_DIR)/, 2-ficheros-nif-alt.o nif.o)

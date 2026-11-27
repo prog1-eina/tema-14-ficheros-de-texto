@@ -107,7 +107,6 @@ void escribirFicheroNif(const string nombreFichero, const Nif T[],
     }
 }
 
-
 /*
  * Programa de ejemplo de uso de las funciones anteriores.
  */ 

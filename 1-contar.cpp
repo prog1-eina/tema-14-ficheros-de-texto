@@ -55,7 +55,6 @@ void contabilizar(const string nombreFichero, unsigned &nLineas,
     }
 }
 
-
 /*
  * Pre:  «nombreFichero» es el nombre de un fichero de texto existente y
  *       accesible para su lectura.
@@ -90,7 +89,6 @@ void contabilizar2(const string nombreFichero,
         lecturaOk = false;
     }
 }
-
 
 /*
  * Pre:  En el directorio «datos» del proyecto, existe un fichero de texto
